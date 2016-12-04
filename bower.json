@@ -1,0 +1,23 @@
+{
+  "name": "invoice-app",
+  "description": "Online invoicing",
+  "main": "index.js",
+  "authors": [
+    "Tyche Team"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Tyche-Team/Invoice.bg",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jspdf": "^1.3.2",
+    "dom-to-image": "^2.5.2"
+  }
+}

@@ -1,0 +1,106 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='apple-touch-icon', sizes='57x57', href='/static/images/icon/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='/static/images/icon/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='/static/images/icon/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='/static/images/icon/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='/static/images/icon/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='/static/images/icon/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='/static/images/icon/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='/static/images/icon/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='/static/images/icon/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='/static/images/icon/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='/static/images/icon/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='/static/images/icon/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='/static/images/icon/favicon-16x16.png')
+    link(rel='manifest', href='./images/icon/manifest.json')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='/static/images/icon/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
+    title Invoice.bg
+    link(rel='stylesheet', type='text/css', href='/static/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://bootswatch.com/united/bootstrap.min.css')
+    link(rel="stylesheet", href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css")
+    link(href='http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css', rel='stylesheet')
+    script(src=' https://use.fontawesome.com/3082dff402.js')
+    script(src='http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js')
+    link(href="/static/layout/carousel.css", rel='stylesheet')
+    link(href="/static/public/bower_components/bootstrap-social/bootstrap-social.css", rel='stylesheet')
+    link(href="/static/layout/main.css", rel='stylesheet')
+  body
+    header
+      nav.navbar.navbar-default.navbar-fixed-top
+        .container
+          .navbar-header
+            a.navbar-brand(href='#') Invoice.bg
+          #navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li
+                a(href='/home') Начало
+              li
+                a(href='/about') За проекта
+              li
+                a(href='/invoice') Фактура
+            ul.nav.navbar-nav.navbar-right
+                if user
+                  li.dropdown
+                    a.dropdown-toggle(href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false")
+                      = user.username
+                      span.caret
+                      ul.dropdown-menu
+                        li
+                          a(href="/user/profile") 
+                            | Профил
+                        li
+                          a(href="/company/settings") 
+                            | Фирмени данни
+                        li
+                          a(href="/invoice/all")
+                            | Издадени фактури    
+                        li
+                          a(href="/reference")
+                            | Справки    
+                        li
+                          a(href='/logout') 
+                            | Изход
+                  li
+                    if model
+                      a 
+                      //(href="/company/settings") = model.name                        
+                else                          
+                  li
+                    a(href='/login') Вход
+                  li
+                    a(href='/register') Регистрация
+    block content
+    br
+    footer.footer.text-center.footer-body
+      .container-fluid
+        .footer-header
+          p.navbar-center
+            | Web Applications with Node.js © 2016 
+            a(href='https://telerikacademy.com/') Telerik Academy
+          p.navbar-center
+            | Application by 
+            a(href='https://github.com/Tyche-Team', target='_blanc') Tyche Team
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="../node_modules/jquery/dist/jquery.min.js"><\\/script>')
+    script(src='/static/bower_components/bootstrap/dist/js/bootstrap.min.js')
+    // Just to make our placeholder images work. Don't actually copy the next line!
+    script(src='http://getbootstrap.com/assets/js/vendor/holder.min.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js')
+    // jQuery
+    script(src="http://code.jquery.com/jquery-3.1.1.js", integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=", crossorigin="anonymous")
+    script(src="http://code.jquery.com/ui/1.12.1/jquery-ui.js", integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=", crossorigin="anonymous")
+
+

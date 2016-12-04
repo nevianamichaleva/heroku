@@ -1,0 +1,37 @@
+extends _layout
+block content
+    .container
+      .row.main
+        .panel-heading
+          .panel-title.text-center
+            h1.title Справки
+            #dateReference
+                form(action="/reference/period" method="get")
+                    h3 Справка за издадени фактури за период
+                    label(for='startDate') Въведете начална дата:
+                    input.reference.space(type='date', name='startDate')
+                    label(for='endDate') Въведете крайна дата:
+                    input.reference.space(type='date', name='endDate')
+                    button.space Справка
+            #conragentReference
+                form(action="/reference/contragent" method="get")
+                    h3 Справка за издадени фактури по клиент
+                    label(for='contragent') Изберете клиент:
+                    select#client-info.reference.space(name='contragent')
+                      each client in model1
+                        option(value=client.name, size="40")= client.name
+                    button.space Справка
+            #productReference
+                form(action="/reference/product" method="get")
+                    h3 Справка за продажби по продукти
+                    label(for='product') Изберете продукт:
+                    select#product-info.reference.space(name='product')
+                      each product in model
+                        option(value=product.name, size="40")= product.name
+                    button.space Справка
+            #placeReference
+                form(action="/reference/place" method="get")
+                    h3 Справка за издадени фактури по място
+                    label(for='place') Въведете място на сделката:
+                    input.reference.space(type='text', name='place')
+                    button.space Справка

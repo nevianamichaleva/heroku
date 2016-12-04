@@ -1,0 +1,25 @@
+mixin invoice-products(invoices)
+		
+	#invoiceproducts-details
+		table#nvoicelist
+				thead
+					tr
+						td(width='10%') Номер фактура
+						td(width='10%') Дата
+						td(width='25%') Клиент
+				tbody
+					each invoice in invoices
+						tr
+							td
+								a(href="/invoice/" + invoice._id) 
+									= invoice.number
+							td.date
+								-
+									var date= new Date(invoice.date);
+									var day = date.getDate();
+									var monthIndex = date.getMonth() + 1;
+									var year = date.getFullYear();
+									var convertedDate = day + '.' + monthIndex + '.' + year + ' г.';
+								= convertedDate
+							td
+								= invoice.client.name

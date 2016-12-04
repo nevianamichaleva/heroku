@@ -1,0 +1,48 @@
+mixin invoice-list(invoices, currentPage, pages)
+		
+	#invoicelist-details
+		table#nvoicelist.table-bordered
+				thead
+					tr
+						td.text-center(width='8%') Изтрий
+						td.text-center(width='12%') Дата
+						td.text-center(width='10%') Номер
+						td.text-center(width='13%') Стойност
+						td.text-center(width='20%') Клиент
+						td.text-center(width='17%') МОЛ
+						td.text-center(width='20%') Адрес
+				tbody
+					each invoice in invoices
+						tr
+							td.text-center
+								a(href="/invoice/remove/" + invoice._id)
+									strong -
+							td.date
+								-
+									var date= new Date(invoice.date);
+									var day = date.getDate();
+									var monthIndex = date.getMonth() + 1;
+									var year = date.getFullYear();
+									var convertedDate = day + '.' + monthIndex + '.' + year + ' г.';
+								= convertedDate
+							td
+								a(href="/invoice/" + invoice._id) 
+									= invoice.number
+							td
+								= invoice.total
+							td
+								= invoice.client.name
+							td
+								= invoice.client.accountablePerson
+							td
+								= invoice.client.address     
+	nav#paging(aria-label='Page navigation')
+		ul.breadcrumb
+				- for(let i = 1; i <= pages; i+=1 )
+							li
+									if currentPage === i
+											a(href="/invoice/all?page=" + i)
+												= i
+									else
+											a(href="/invoice/all?page=" + i)
+												= i

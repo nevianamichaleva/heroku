@@ -1,0 +1,233 @@
+body,
+html {
+    height: 100%;
+    background-repeat: no-repeat;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.main {
+    margin-top: 40px;
+}
+
+h1.title {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+hr {
+    width: 10%;
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 15px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+}
+
+.main-login {
+    background-color: #fff;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.main-center {
+    margin-top: 30px;
+    margin: 0 auto;
+    max-width: 330px;
+    padding: 40px 40px;
+}
+
+.login-button {
+    margin-top: 5px;
+}
+
+.login-register {
+    font-size: 11px;
+    text-align: center;
+}
+
+#supplier-logo {
+    float: left;
+    margin-right: 80px;
+}
+
+#supplier-logo img {
+    margin: 54px;
+    width: 96px;
+}
+
+.supplier {
+    margin: 36px 0 20px 0;
+}
+
+.supplier-left {
+    float: left;
+}
+
+.supplier-left td input {
+    margin-bottom: 15px;
+}
+
+.disabled {
+    border: none;
+    background-color: white;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.space {
+    margin-left: 10px;
+}
+
+#invoice {
+    float: left;
+}
+
+.noborderselect {
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: lightgrey;
+    font-family: "Courier New", Courier, monospace;
+    height: 60px;
+    padding: 5px;
+    /* If you add too much padding here, the options won't show in IE */
+    width: 260px;
+}
+
+.black {
+    color: black;
+    font-size: 40px;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+}
+
+.invoicenumber {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+#recipient {
+    margin: 0 0 50px 450px;
+}
+
+#recipient input,
+#end-invoice input,
+.supplier input {
+    font-size: 16px;
+}
+
+.big-invoice {
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+    padding-left: 100px;
+}
+
+#invoice-details table thead,
+#invoice-details table tbody tr {
+    border-bottom: 1px solid lightgrey;
+}
+
+#invoice-details input {
+    border: none;
+    font-size: 16px;
+}
+
+#invoice-value {
+    float: right;
+    margin-top: 20px;
+}
+
+#invoice-value input {
+    font-size: 18px;
+}
+
+#additional-info {
+    float: left;
+}
+
+#additional-info div {
+    margin-top: 20px;
+}
+
+#end-invoice {
+    margin-top: 30px;
+}
+
+#end-invoice .points {
+    margin-top: 30px;
+    margin-left: 80px;
+}
+
+.down-nav {
+    margin-left: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.down-nav button {
+    margin-right: 20px;
+}
+
+.red {
+    color: red;
+}
+
+#add-more-products {
+    margin-top: 10px;
+}
+
+#nvoicelist {
+    width: 100%;
+    border: 1px solid lightgrey;
+    font-size: 18px;
+}
+
+#inwords {
+    font-size: 18px;
+}
+
+#dateReference,
+#conragentReference,
+#placeReference,
+#productReference {
+    margin: 30px;
+    border: 1px solid grey;
+    padding: 15px;
+}
+
+.reference {
+    font-size: 20px;
+}
+
+.social button {
+    margin-right: 20px;
+}
+.social a {
+    margin-right: 20px;
+}
+
+.form-group a {
+    margin-left: 35px;
+}
+
+.social {
+    padding: 0 0 0 48px;
+}

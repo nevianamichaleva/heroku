@@ -1,0 +1,30 @@
+/* globals module */
+
+module.exports = {
+    invoiceNumberLength: 10,
+    minIdentityLength: 9,
+    maxIdentityLength: 13,
+    minCompanyNameLength: 2,
+    maxCompanyNameLength: 50,
+    minClientNameLength: 2,
+    maxClientNameLength: 50,
+    minProductNameLength: 2,
+    maxProductNameLength: 100,
+    minUsernameLength: 6,
+    maxUsernameLength: 50,
+    wrongInvoiceNumberMessage: "Моля въведете номер на фактура с 10 символа",
+    wrongIdentityMessage: "Моля въведете ЕИК между 9 и 13 символа",
+    wrongCompanyNameMessage: "Моля въведете Име на фирма между 2 и 50 символа",
+    wrongUsernameMessage: "Моля въведете Потребителско име между 6 и 50 символа",
+    emptyCompanyNameMessage: "Моля въведете Име на фирма",
+    emptyIdentityMessage: "Моля въведете ЕИК",
+    emptyCityMessage: "Моля въведете град",
+    emptyAddressMessage: "Моля въведете адрес",
+    emptyMOLMessage: "Моля въведете име на МОЛ",
+    wrongEmailMessage: "Моля въведете валиден Email",
+    emptyNameMessage: "Моля въведете Име, фамилия",
+    emptyUsernameMessage: "Моля въведете Потребителско име",
+    emptyEmailMessage: "Моля въведете Email",
+    emptyPasswordMessage: "Моля въведете парола",
+    emptyConfirmMessage: "Моля потвърдете паролата"
+};

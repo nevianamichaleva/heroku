@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#nav-logo {
+    text-decoration: none;
+}
+
+.search-label {
+    font-size: 1.6em;
+}
+
+.wrapper {
+    margin: 0;
+    padding: 0
+}
+
+#content {
+    margin: 0;
+    padding-left: 5%;
+}
+
+.jumbotron {
+    padding: 3%
+}
+
+.thumbnail {
+    border: none;
+}
+
+.caption {
+    padding: 0;
+}
+
+.thumbnail img {
+    width: 80%;
+    margin: 1%;
+}
+
+.well {
+    margin: 0;
+    padding-left: 5%;
+}
+
+.login-images {
+    width: 30%;
+}
+
+.dropdown-menu li {
+    width: 230px;
+}
+
+.glyphicon {
+    font-size: 2em;
+}
+
+
+/*p,
+label,
+a {
+    font-size: 27px;
+}*/
+
+.panel-heading {
+    margin-right: 0;
+    padding-left: 3%;
+    font-size: 1.5em;
+}
+
+.panel-body {
+    font-size: 1.7em;
+    margin: 0;
+    padding: 3%;
+}
+
+.panel footer {
+    font-size: 1.5em;
+    margin: 0;
+    padding-bottom: 2%;
+    padding-left: 2%;
+}
+
+.panel footer a {
+    color: darkcyan;
+}
+
+.footer {
+    font-size: 0.8em;
+}
+
+.panel-default {
+    padding: 2%;
+}
+
+.footer-body {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    line-height: 90%;
+}
+
+p.footer {
+    font-size: 0.5em;
+    color: darkgrey;
+}

@@ -1,0 +1,14 @@
+extends _layout
+include _mixins/_invoice-place
+block content
+  .container
+    .row.main
+      .panel-heading
+        .panel-title.text-center
+          h1.title Списък с издадени фактури
+          hr
+    #invoice-details
+      +invoice-place(model)
+    .down-nav-list
+    if user
+      a.btn.btn-primary.btn-lg.login-button(href="/invoice") Добави фактура

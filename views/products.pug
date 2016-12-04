@@ -1,0 +1,14 @@
+extends _layout
+include _mixins/_products
+block content
+  .container
+    .row.main
+      .panel-heading
+        .panel-title.text-center
+          h1.title Продажби на #{unit} по фактури
+          hr
+    #invoice-details
+      +invoice-products(model)
+    .down-nav-list
+    if user
+      a.btn.btn-primary.btn-lg.login-button(href="/invoice") Добави фактура

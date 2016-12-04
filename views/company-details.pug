@@ -1,0 +1,106 @@
+extends _layout
+block content
+
+ .row.main
+   .panel-heading
+    .panel-title.text-center
+      h1.title Въведете фирмените си данни
+      hr
+    if errors  
+      ul
+        for err in errors
+          li!= err.msg
+    .main-login.main-center
+      form.form-horizontal(method='post', action='#', enctype="multipart/form-data")
+       if model
+        input#name.form-control(type='hidden', name='_id', value=model._id)
+       .form-group
+        label.cols-sm-2.control-label(for='name') Име на фирмата
+                                                  <span class="red">*</span>
+        .cols-sm-10
+          .input-group
+            span.input-group-addon
+              i.fa.fa-user.fa(aria-hidden='true')
+            if model
+              input#name.form-control(type='text', name='name', value=model.name)
+            else
+              input#name.form-control(type='text', name='name', placeholder='Въведете име на фирма (BG)') 
+       .form-group
+        label.cols-sm-2.control-label(for='bulstat') ЕИК
+                                                     <span class="red">*</span> 
+        .cols-sm-10
+          .input-group
+            span.input-group-addon
+              i.fa.fa-info-circle(aria-hidden='bulstat')
+            if model  
+              input#eik.form-control(type='text', name='bulstat', value=model.bulstat)
+            else
+              input#eik.form-control(type='text', name='bulstat', placeholder='Въведете ЕИК')  
+       .form-group
+         .checkbox
+          label
+            if model
+              input(type='checkbox', name='useTax', checked=model.useTax)
+            else
+              input(type='checkbox', name='useTax', value='')  
+            | Регистрация по ДДС
+       .form-group
+        label.cols-sm-2.control-label(for='city') Град
+                                                  <span class="red">*</span>
+        .cols-sm-10
+          .input-group
+            span.input-group-addon
+              i.fa.fa-address-card-o(aria-hidden='true')
+            if model
+              input#mol.form-control(type='text', name='city', value=model.city)
+            else 
+              input#mol.form-control(type='text', name='city', placeholder='Въведете град')  
+       .form-group
+        label.cols-sm-2.control-label(for='address') Адрес
+                                                     <span class="red">*</span>
+        .cols-sm-10
+          .input-group
+            span.input-group-addon
+              i.fa.fa-address-card-o(aria-hidden='true')
+            if model  
+              textarea#address.form-control(rows='3', name='address')
+                =model.address
+            else
+              textarea#address.form-control(rows='3', name='address', placeholder='Въведете адрес')  
+       .form-group
+        label.cols-sm-2.control-label(for='accountablePerson') Материално отговорно лице
+                                                               <span class="red">*</span>
+        .cols-sm-10
+          .input-group
+            span.input-group-addon
+              i.fa.fa-user-circle-o(aria-hidden='true')
+            if model
+              input#mol.form-control(type='text', name='accountablePerson', value=model.accountablePerson)
+            else
+              input#mol.form-control(type='text', name='accountablePerson', placeholder='Въведете име на МОЛ')  
+       .form-group
+        label.cols-sm-2.control-label(for='email') Email
+        .cols-sm-10
+          .input-group
+            span.input-group-addon
+              i.fa.fa-envelope.fa(aria-hidden='true')
+            if model
+              input#email.form-control(type='email', name='email', value=model.email)
+            else
+              input#email.form-control(type='email', name='email', placeholder='Въведете email')  
+       .form-group
+        label.cols-sm-2.control-label(for='phone') Телефон
+        .cols-sm-10
+          .input-group
+            span.input-group-addon
+              i.fa.fa-phone(aria-hidden='true')
+            if model
+              input#phone.form-control(type='text', name='phone', value=model.phone)
+            else
+              input#phone.form-control(type='text', name='phone', placeholder='Въведете телефон')  
+       .form-group
+        label.control-label Вашето лого
+        input#input-4.file-loading(type="file",name="upl")        
+       .form-group
+           button.btn.btn-primary.btn-lg.btn-block.login-button
+               | Запис

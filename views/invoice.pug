@@ -1,0 +1,219 @@
+extends _layout
+block content
+  form(action='/invoice' method='post')
+    .container
+      .row.main
+        .panel-heading
+          .panel-title.text-left
+            h1.title Въведете данни за фактура
+        .big-invoice
+          #supplier-logo
+            if model
+              input#hiddenData(type='hidden', value=(model.logo.contentType ? ("data:" +model.logo.contentType + ";base64," +Buffer.from(model.logo.data).toString('base64')) : "https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"))
+              img(src=(model.logo.contentType ? ("data:" +model.logo.contentType + ";base64," +Buffer.from(model.logo.data).toString('base64')) : "https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png"), alt='Company Logo')
+            else
+              img(src='/static/images/icon/Logo.jpg', alt='Company Logo')
+          .supplier
+            if model
+              .supplier-left
+                table.disabled
+                  tr
+                    td
+                      input#companyName.disabled(type='text', disabled='', value=model.name, size='50', name='companyName')
+                  tr
+                    td
+                      label гр.
+                      input#companyCity.disabled.space(type='text', disabled='', value=model.city, size='50')
+                  tr
+                    td
+                      input#companyAddress.disabled(type='text', disabled='', value=model.address, size='50', name='companyAddress')
+              .supplier-right
+                table.disabled
+                  tr
+                    td
+                      label(name='EIK') ЕИК(Булстат):
+                      input#companyIdentity.disabled.space(type='text',  disabled='', value=model.bulstat, name='companyIdentity')
+                  tr
+                    td
+                      label(name='ZDDS') ЗДДС №:
+                      input#companyZDDS.disabled.space(type='text', name='ZDDS', value=model.identity, disabled='')
+                  tr
+                    td
+                      label(name='MOL') МОЛ:
+                      input#companyMOL.disabled.space(type='text', disabled='', value=model.accountablePerson, name='companyMOL')
+            else
+              .supplier-left
+                table.disabled
+                  tr
+                    td
+                      input#companyName.disabled(type='text', placeholder='Име на фирмата', size='50', name='companyName')
+                  tr
+                    td
+                      label гр.
+                      input#companyCity.disabled.space(type='text', placeholder='Град', size='50')
+                  tr
+                    td
+                      input#companyAddress.disabled(type='text', placeholder='Адрес', size='50', name='companyAddress')
+              .supplier-right
+                table.disabled
+                  tr
+                    td
+                      label(name='EIK') ЕИК(Булстат):
+                      input#companyIdentity.disabled.space(type='text', placeholder='ЕИК', name='companyIdentity')
+                  tr
+                    td
+                      label(name='ZDDS') ЗДДС №:
+                      input#companyZDDS.disabled.space(type='text', name='ZDDS', placeholder='ДДС номер')
+                  tr
+                    td
+                      label(name='MOL') МОЛ:
+                      input#companyMOL.disabled.space(type='text', placeholder='Представляващ', name='companyMOL')
+          .clearfix
+          #invoice
+            div
+              select.noborderselect
+                option(selected='', value='1') ОРИГИНАЛ
+                option(value='2') КОПИЕ
+            div
+              select.noborderselect.black
+                option(selected='', value='1') ФАКТУРА
+            div
+              label.invoicenumber.space(name='number-input') №
+                                                             <span class="red">*</span>
+              input#invoiceNumber.invoicenumber.space(type='text', name='number')
+            div
+              label.invoicenumber.space(for='date-input') дата
+                                                          <span class="red">*</span>
+              input#date-input.invoicenumber.space(type='date', name='date')
+            div
+              label.space(for='place-input') Mясто на сделката
+                                             <span class="red">*</span>
+              input#place-input.invoicenumber.space(type='text')
+          #recipient
+            h3 Получател
+               <span class="red">*</span>
+            table#recipienttable
+              tr
+                td
+                  input#clientName.disabled(type='text', placeholder='Въведете име на фирмата', size='60', name='clientName')
+              tr
+                td
+                  input#clientCity.disabled(type='text', placeholder='Въведете град', size='60', name='clientCity')
+              tr
+                td
+                  input#clientAddress.disabled(type='text', placeholder='Въведете адрес', size='60', name='clientAddress')
+              tr
+                td
+                  label(name='EIK') ЕИК(Булстат):
+                  input#clientIdentity.disabled.space(type='text', placeholder='Въведете ЕИК', size='13', name='clientIdentity')
+              tr
+                td
+                  label(name='ZDDS') ЗДДС №:
+                  input#clientZDDS.disabled.space(type='text', name='ZDDS', placeholder='Въведете ДДС номер', size='15')
+              tr
+                td
+                  label(name='MOL') МОЛ:
+                  input#clientMOL.disabled.space(type='text', placeholder='Въведете име на представляващо лице', size='60', name='clientMOL')
+          .clearfix
+          #invoice-details
+            table#products
+              thead
+                tr
+                  td Наименование на стока/услуга
+                  td Мярка
+                  td Количество
+                  td Ед.цена
+                  td Стойност
+              tbody
+                tr
+                  td
+                    input.productName(type='text', size='60', placeholder='Въведете стока или услуга')
+                  td
+                    input.productUnit(type='text', size='10', placeholder='Мярка')
+                  td
+                    input.productQuantity(type='text', size='10', placeholder='Kоличество')
+                  td
+                    input.productPrice(type='text', size='10', placeholder='Eд. цена')
+                  td
+                    input.productValue(type='text', size='20', disabled='')
+            button#add-more-products(type='button')
+              | + 
+          #invoice-value
+            div
+              label(for='value') Сума по фактура:
+              input#inv-value.disabled.space(type='text', disabled='', size='20', name='sum')
+            div
+              label(for='value') Данъчна основа:
+              input#dds-value.disabled.space(type='text', disabled='', size='20', name='vat')
+            div
+              label(for='dds-rate') Процент ДДС:
+              select#dds-rate.disabled.space
+                option(selected, value='20') 20%
+                option(value='0') 0%
+            div
+              label(for='dds') Начислен ДДС:
+              input#dds.disabled.space(type='text', disabled='', size='20', name='dds')
+            div
+              label(for='value-end') Всичко:
+              input#value-end.disabled.space(type='text', disabled='', size='20', name='total')
+          #additional-info
+            div
+              label(for='inwords') Словом:
+              input#inwords.disabled.space(type='text', disabled='', size='100')
+            div
+              label(for='dds-info') Основание за неначисляване на ДДС:
+              select#dds-info.disabled.space
+                option(selected, value='0') няма
+                option(value='1') чл.113, ал.9 от ЗДДС – лицето не е регистрирано по ЗДДС
+                option(value='2') чл.113, ал.9 от ЗДДС – лицето е регистрирано само на основание чл.97а от ЗДДС
+                option(value='3') чл.113, ал.9 от ЗДДС – лицето е регистрирано само на основание чл.99 от ЗДДС
+                option(value='4') чл.113, ал.9 от ЗДДС – лицето е регистрирано само на основание чл.100 от ЗДДС
+                option(value='5') чл.86, ал.1 от ППЗДДС – доставка на обща туристическа услуга
+                option(value='6') чл. 39 от ЗДДС - доставка свързана със здравеопазване
+                option(value='7') чл. 40 от ЗДДС - доставка свързана със социални грижи и здравеопазване
+                option(value='8') чл. 41 от ЗДДС - доставка свързана с образование, спорт и физическо възпитание
+                option(value='9') чл. 42 от ЗДДС - доставка свързана с култура
+                option(value='10') чл. 43 от ЗДДС - доставка свързана с вероизповедания
+                option(value='11') чл. 44 от ЗДДС - доставка свързана с нестопански характер
+                option(value='12') чл. 45 от ЗДДС - земя и сгради
+                option(value='13') чл. 48 от ЗДДС - хазарт
+                option(value='14') чл. 49 от ЗДДС - пощенски марки и пощенски услуги
+                option(value='15') чл. 50 от ЗДДС - освободена доставка при неползван данъчен кредит
+                option(value='16')
+                  | чл. 18 от ЗДДС - доставка на стоки и услуги, извършвани на борда на кораби, самолети и влакове, извън територията на България
+                option(value='17')
+                  | чл. 19 от ЗДДС - доставка на природен газ или електрическа енергия ,извън територията на България
+                option(value='18') чл. 28с(Е)(3)77/388ЕЕС - посредник в тристранна операция
+                option(value='19') чл. 46 от ЗДДС - финансови услуги
+                option(value='20') чл. 47 от ЗДДС - застрахователни услуги
+            div
+              label(for='payment') Начин на плащане:
+              select#payment.disabled.space
+                option(selected='', value='1') в брой
+                option(selected='', value='2') по банков път
+          .clearfix
+          #end-invoice
+            .supplier-left
+              label(for='polu4atel') Получател:
+              input#polu4atel.disabled.space(type='text', size='50', placeholder='Въведете получател')
+              .points
+                p .........................................
+                p /подпис/
+            .supplier-right
+              label(for='systavil') Съставил:
+              input#systavil.disabled.space(type='text', size='50', value=(model ? model.accountablePerson : placeholder='Въведете съставител'))
+              .points
+                p .........................................
+                p /подпис/
+        .down-nav
+            if user
+              button#save-invoice.btn.btn-primary.btn-lg.login-button(type='button') Запис
+            button#print-invoice.btn.btn-primary.btn-lg.login-button(type='button') Печат
+            button.btn.btn-primary.btn-lg.login-button E-mail
+        script(src='/static/bower_components/jspdf/dist/jspdf.debug.js')
+        script(src='/static/bower_components/jquery/dist/jquery.js')
+        script(src='/static/bower_components/dom-to-image/dist/dom-to-image.min.js')
+        script(src='/static/scripts/numberToWords.js')
+        script(src='/static/scripts/pdfGenerator.js')
+        script(src='/static/scripts/invoice.js')
+        script(src='/static/scripts/autocompletes.js')
