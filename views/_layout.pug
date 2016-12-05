@@ -23,13 +23,12 @@ html(lang='en')
     meta(name='theme-color', content='#ffffff')
     title Invoice.bg
     link(rel='stylesheet', type='text/css', href='/static/bower_components/bootstrap/dist/css/bootstrap.min.css')
-    link(rel='stylesheet', href='https://bootswatch.com/united/bootstrap.min.css')
-    link(rel="stylesheet", href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css")
-    link(href='http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css', rel='stylesheet')
-    script(src=' https://use.fontawesome.com/3082dff402.js')
-    script(src='http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js')
+    link(rel='stylesheet', href='//bootswatch.com/united/bootstrap.min.css')
+    link(rel="stylesheet", href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css")
+    link(href='//getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css', rel='stylesheet')
+    script(src='//use.fontawesome.com/3082dff402.js')
+    script(src='//getbootstrap.com/assets/js/ie-emulation-modes-warning.js')
     link(href="/static/layout/carousel.css", rel='stylesheet')
-    link(href="/static/public/bower_components/bootstrap-social/bootstrap-social.css", rel='stylesheet')
     link(href="/static/layout/main.css", rel='stylesheet')
   body
     header
@@ -91,8 +90,14 @@ html(lang='en')
       Bootstrap core JavaScript
       ==================================================
     // Placed at the end of the document so the pages load faster
-    script(src='/static/bower_components/jquery/dist/jquery.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="../node_modules/jquery/dist/jquery.min.js"><\\/script>')
     script(src='/static/bower_components/bootstrap/dist/js/bootstrap.min.js')
+    // Just to make our placeholder images work. Don't actually copy the next line!
+    script(src='//getbootstrap.com/assets/js/vendor/holder.min.js')
     // IE10 viewport hack for Surface/desktop Windows 8 bug
-    script(src='http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js')
-   
+    script(src='//getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js')
+    // jQuery
+    script(src="//code.jquery.com/jquery-3.1.1.js", integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=", crossorigin="anonymous")
+    script(src="//code.jquery.com/ui/1.12.1/jquery-ui.js", integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=", crossorigin="anonymous")
